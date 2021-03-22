@@ -1,0 +1,95 @@
+create table city
+(
+    id   serial not null
+        constraint city_pk
+            primary key,
+    name text   not null
+);
+
+alter table city
+    owner to postgres;
+
+create unique index city_id_uindex
+    on city (id);
+
+create table university
+(
+    id       serial  not null
+        constraint university_pk
+            primary key,
+    name     text    not null,
+    "cityid" integer not null
+        constraint university_city_id_fk
+            references city
+);
+
+alter table university
+    owner to postgres;
+
+create unique index university_id_uindex
+    on university (id);
+
+create table department
+(
+    id             serial  not null
+        constraint department_pk
+            primary key,
+    name           text    not null,
+    "universityid" integer not null
+        constraint department_university_id_fk
+            references university
+);
+
+alter table department
+    owner to postgres;
+
+create unique index department_id_uindex
+    on department (id);
+
+create table "researchemployee"
+(
+    id   serial not null
+        constraint employee_pk
+            primary key,
+    name text   not null,
+    post text   not null
+);
+
+alter table "researchemployee"
+    owner to postgres;
+
+create unique index employee_id_uindex
+    on "researchemployee" (id);
+
+create table students
+(
+    id             serial  not null
+        constraint students_pk
+            primary key,
+    name           text    not null,
+    "departmentid" integer not null
+        constraint students_department_id_fk
+            references department
+);
+
+alter table students
+    owner to postgres;
+
+create unique index students_id_uindex
+    on students (id);
+
+create table "departmentemployee"
+(
+    "departmentid" integer not null
+        constraint departmentemployee_department_id_fk
+            references department,
+    "employeeid"   integer not null
+        constraint departmentemployee_researchemployee_id_fk
+            references "researchEmployee",
+    constraint "DepartmentEmployee_pkey"
+        primary key ("departmentId", "employeeId")
+);
+
+alter table "departmentemployee"
+    owner to postgres;
+

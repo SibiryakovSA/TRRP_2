@@ -1,0 +1,24 @@
+create table PeopleInUniversities
+(
+    id             integer not null
+        constraint PeopleInUniversities_pk
+            primary key autoincrement,
+    name           text    not null,
+    department     text    not null,
+    universityName text    not null,
+    cityName       text    not null,
+    employeeRole   text
+);
+
+create unique index PeopleInUniversities_id_uindex
+    on PeopleInUniversities (id);
+
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (1, 'Сибиряков Семен', 'ФИТ', 'ПГНИУ', 'Пермь', null);
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (2, 'Беляев Иван', 'ПИ', 'ПНИПУ', 'Пермь', null);
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (3, 'Щурик Степан', 'ФИТ', 'ПГНИУ', 'Пермь', null);
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (4, 'Кнутова Натали', 'ПМИ', 'ПГНИУ', 'Пермь', 'Старший преподаватель');
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (5, 'Захаров Павел', 'ПМИ', 'РАНХиГС', 'Москва', null);
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (6, 'Желнин Антон', 'Философия', 'ПГНИУ', 'Пермь', 'Доцент кафедры');
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (7, 'Черников Арсений', 'ИБ', 'Пгниу', 'Пермь', 'Доцент кафедры');
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (8, 'Абанкина Ирина', 'Экономика', 'ВШЭ', 'Москва', 'Профессор');
+INSERT INTO PeopleInUniversities (id, name, department, universityName, cityName, employeeRole) VALUES (9, 'Савельева Светлана', 'История', 'ВШЭ', 'Санкт-Петербург', 'Профессор');

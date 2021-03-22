@@ -1,0 +1,4 @@
+{
+  "connectionString": "postgresql://postgres:123@localhost:5432/trrp_2",
+  "listenPort": "127.0.0.1:8088"
+}
